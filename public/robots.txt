@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tiktokenizer.app/sitemap.xml
