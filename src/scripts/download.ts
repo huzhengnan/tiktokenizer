@@ -8,8 +8,8 @@ import { fetch as fetchWithProxy } from "undici";
 
 async function download() {
   // 设置代理
-  const proxyUrl = 'http://localhost:7890';
-  const proxyAgent = new ProxyAgent(proxyUrl);
+  // const proxyUrl = 'http://localhost:7890';
+  // const proxyAgent = new ProxyAgent(proxyUrl);
   
   // 不再替换全局fetch，而是直接使用undici的fetch
   
@@ -48,7 +48,7 @@ async function download() {
                 ContentType: "application/json",
               },
               signal: controller.signal,
-              dispatcher: proxyAgent
+              // dispatcher: proxyAgent
             }
           );
           
