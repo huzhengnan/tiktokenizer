@@ -15,6 +15,7 @@ import { createTokenizer } from "~/models/tokenizer";
 import { EncoderSelect } from "~/sections/EncoderSelect";
 import { TokenViewer } from "~/sections/TokenViewer";
 import { ChatGPTEditor } from "../sections/ChatGPTEditor";
+import { GoogleAd } from "~/components/GoogleAd";
 
 function useQueryParamsState() {
   const router = useRouter();
@@ -46,6 +47,7 @@ const Home: NextPage<
   });
 
   const tokens = tokenizer.data?.tokenize(inputText);
+  const isEmpty = !inputText || inputText.trim() === "";
 
   return (
     <>
@@ -98,8 +100,20 @@ const Home: NextPage<
 
           <section className="flex flex-col gap-4" aria-labelledby="token-section">
             <h2 id="token-section" className="sr-only">Tokenization Results</h2>
-            <TokenViewer model={model} data={tokens} isFetching={false} />
+            {isEmpty ? (
+              <div className="flex flex-col items-center justify-center min-h-[256px] border rounded-md p-4">
+                <p className="text-slate-500 mb-4">输入文本以查看分词结果</p>
+                <GoogleAd slot="2295190536" className="w-full max-w-md" />
+              </div>
+            ) : (
+              <TokenViewer model={model} data={tokens} isFetching={false} />
+            )}
           </section>
+        </div>
+        
+        {/* 在页面底部添加横幅广告 */}
+        <div className="mt-8">
+          <GoogleAd slot="2295190536" format="horizontal" className="w-full" />
         </div>
         <style jsx>
           {`
