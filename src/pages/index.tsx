@@ -36,6 +36,14 @@ function useQueryParamsState() {
   return [params, setParams] as const;
 }
 
+// Add example text constants
+const EXAMPLE_TEXTS = [
+  "Large Language Models (LLMs) are deep learning-based natural language processing models capable of understanding and generating human language.",
+  "Tokenization is the process of breaking down text into smaller units called tokens.",
+  "GPT-4 is a large language model developed by OpenAI with powerful natural language understanding and generation capabilities.",
+  "Llama 3 is an open-source large language model developed by Meta that performs excellently on various tasks."
+];
+
 const Home: NextPage<
   InferGetServerSidePropsType<typeof getServerSideProps>
 > = () => {
@@ -48,6 +56,11 @@ const Home: NextPage<
 
   const tokens = tokenizer.data?.tokenize(inputText);
   const isEmpty = !inputText || inputText.trim() === "";
+
+  // 选择示例文本的函数
+  const handleExampleClick = (text: string) => {
+    setInputText(text);
+  };
 
   return (
     <>
@@ -102,8 +115,30 @@ const Home: NextPage<
             <h2 id="token-section" className="sr-only">Tokenization Results</h2>
             {isEmpty ? (
               <div className="flex flex-col items-center justify-center min-h-[256px] border rounded-md p-4">
-                <p className="text-slate-500 mb-4">输入文本以查看分词结果</p>
-                <GoogleAd slot="2295190536" className="w-full max-w-md" />
+                <h3 className="text-lg font-medium mb-4">Example Texts</h3>
+                <p className="text-slate-600 mb-4">Click on an example below to see tokenization results:</p>
+                <div className="flex flex-col gap-2 w-full">
+                  {EXAMPLE_TEXTS.map((text, index) => (
+                    <button
+                      key={index}
+                      onClick={() => handleExampleClick(text)}
+                      className="text-left p-2 border rounded hover:bg-slate-50 transition-colors"
+                    >
+                      {text.length > 60 ? text.substring(0, 60) + '...' : text}
+                    </button>
+                  ))}
+                </div>
+                <div className="mt-4 text-center">
+                  <p className="text-sm text-slate-500">
+                    Need additional models? Contact us at:
+                    <a 
+                      href="mailto:huzhengnan@foxmail.com" 
+                      className="text-blue-600 hover:underline ml-1"
+                    >
+                      huzhengnan@foxmail.com
+                    </a>
+                  </p>
+                </div>
               </div>
             ) : (
               <TokenViewer model={model} data={tokens} isFetching={false} />
@@ -111,26 +146,72 @@ const Home: NextPage<
           </section>
         </div>
         
-        {/* 在页面底部添加横幅广告 */}
-        <div className="mt-8">
-          <GoogleAd slot="2295190536" format="horizontal" className="w-full" />
+        {/* Only show ads when there is content */}
+        {!isEmpty && (
+          <div className="mt-8">
+            <GoogleAd 
+              slot="2295190536" 
+              format="horizontal" 
+              className="w-full" 
+              contentRequired={true}
+            />
+          </div>
+        )}
+        
+        {/* Add more valuable content */}
+        <div className="mt-8 border-t pt-6">
+          <h2 className="text-xl font-bold mb-4">About Tokenization</h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            <div>
+              <h3 className="text-lg font-medium mb-2">What is Tokenization?</h3>
+              <p className="text-slate-600">
+                Tokenization is the process of breaking text into smaller units (called tokens). Large language models use these tokens to understand and generate text.
+                Different models use different tokenization algorithms, which affects their performance and efficiency.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-medium mb-2">Why is Tokenization Important?</h3>
+              <p className="text-slate-600">
+                Understanding how models break text into tokens is crucial for optimizing prompts, reducing token usage, and lowering API costs.
+                By visualizing the tokenization process, developers can better understand how models work and create more effective applications.
+              </p>
+            </div>
+          </div>
         </div>
-        <style jsx>
-          {`
-            .diagram-link:hover > span {
-              margin-left: 0;
-            }
+        
+        {/* Add supported models list */}
+        <div className="mt-8">
+          <h2 className="text-xl font-bold mb-4">Supported Models</h2>
+          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+            <div className="border rounded-md p-3">
+              <h3 className="font-medium">OpenAI Models</h3>
+              <ul className="mt-2 text-sm text-slate-600">
+                <li>GPT-4</li>
+                <li>GPT-4o</li>
+                <li>GPT-3.5-Turbo</li>
+                <li>text-davinci-003</li>
+              </ul>
+            </div>
+            <div className="border rounded-md p-3">
+              <h3 className="font-medium">Meta Models</h3>
+              <ul className="mt-2 text-sm text-slate-600">
+                <li>Llama 2</li>
+                <li>Llama 3</li>
+                <li>CodeLlama</li>
+              </ul>
+            </div>
+            <div className="border rounded-md p-3">
+              <h3 className="font-medium">Other Models</h3>
+              <ul className="mt-2 text-sm text-slate-600">
+                <li>Qwen</li>
+                <li>Mistral</li>
+                <li>Claude</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-            .diagram-link > svg {
-              opacity: 0;
-              transform: scale(0.8);
-            }
-            .diagram-link:hover > svg {
-              opacity: 1;
-              transform: scale(1);
-            }
-          `}
-        </style>
+        {/* Footer content */}
         <div className="flex justify-between items-center text-center md:mt-6">
           <p className="text-sm text-slate-400">
             Built by{" "}
@@ -141,6 +222,14 @@ const Home: NextPage<
               href="https://1000ai.ai"
             >
               1000ai
+            </a>
+            {" | "}
+            <a
+              href="mailto:huzhengnan@foxmail.com"
+              className="text-slate-800"
+              title="Contact us to add more models"
+            >
+              Contact Us
             </a>
           </p>
           
@@ -166,7 +255,7 @@ const Home: NextPage<
           </div>
         </div>
         
-        {/* 添加结构化数据 */}
+        {/* Add structure data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
