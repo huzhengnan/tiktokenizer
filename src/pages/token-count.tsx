@@ -9,7 +9,6 @@ import { createTokenizer } from "~/models/tokenizer";
 import { EncoderSelect } from "~/sections/EncoderSelect";
 import { TokenViewer } from "~/sections/TokenViewer";
 import { ChatGPTEditor } from "~/sections/ChatGPTEditor";
-import { GoogleAd } from "~/components/GoogleAd";
 import { Twitter, Github } from "lucide-react";
 import Link from "next/link";
 
@@ -130,18 +129,6 @@ const TokenCountPage: NextPage = () => {
             )}
           </section>
         </div>
-        
-        {/* 只在有内容时显示广告 */}
-        {!isEmpty && (
-          <div className="mt-8">
-            <GoogleAd 
-              slot="2295190536" 
-              format="horizontal" 
-              className="w-full" 
-              contentRequired={true}
-            />
-          </div>
-        )}
         
         {/* 相关信息 */}
         <div className="mt-8 border-t pt-6">

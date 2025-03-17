@@ -15,7 +15,6 @@ import { createTokenizer } from "~/models/tokenizer";
 import { EncoderSelect } from "~/sections/EncoderSelect";
 import { TokenViewer } from "~/sections/TokenViewer";
 import { ChatGPTEditor } from "../sections/ChatGPTEditor";
-import { GoogleAd } from "~/components/GoogleAd";
 
 function useQueryParamsState() {
   const router = useRouter();
@@ -149,12 +148,6 @@ const Home: NextPage<
         {/* Only show ads when there is content */}
         {!isEmpty && (
           <div className="mt-8">
-            <GoogleAd 
-              slot="2295190536" 
-              format="horizontal" 
-              className="w-full" 
-              contentRequired={true}
-            />
           </div>
         )}
         
