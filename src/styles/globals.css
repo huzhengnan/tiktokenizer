@@ -2,9 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 在现有样式后添加 */
+/* Global styles */
+body {
+  @apply bg-white text-slate-800 antialiased;
+}
 
-/* 广告容器样式 */
+/* Button styles */
+.btn {
+  @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:opacity-50;
+}
+
+.btn-primary {
+  @apply bg-blue-600 text-white hover:bg-blue-700;
+}
+
+.btn-secondary {
+  @apply bg-slate-100 text-slate-800 hover:bg-slate-200;
+}
+
+.btn-outline {
+  @apply border border-slate-200 bg-transparent hover:bg-slate-50;
+}
+
+/* Card styles */
+.card {
+  @apply rounded-lg border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow;
+}
+
+/* Input styles */
+.input-focus {
+  @apply focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50;
+}
+
+/* Ad container styles */
 .ad-container {
   min-height: 100px;
   margin: 1rem 0;
@@ -27,4 +57,91 @@
   font-size: 0.75rem;
   color: #94a3b8;
   padding: 2px;
+}
+
+/* Typography styles */
+.heading-1 {
+  @apply text-4xl font-bold text-slate-800;
+}
+
+.heading-2 {
+  @apply text-2xl font-bold text-slate-800;
+}
+
+.heading-3 {
+  @apply text-xl font-medium text-slate-800;
+}
+
+.text-body {
+  @apply text-base text-slate-700;
+}
+
+.text-small {
+  @apply text-sm text-slate-600;
+}
+
+/* Layout utilities */
+.container-main {
+  @apply mx-auto max-w-[1200px] p-8;
+}
+
+.section-spacing {
+  @apply my-8 py-6;
+}
+
+.card-grid {
+  @apply grid gap-6 md:grid-cols-2 lg:grid-cols-3;
+}
+
+/* Token visualization styles */
+.token-item {
+  @apply rounded border border-slate-200 px-2 py-1 font-mono text-sm bg-white hover:bg-slate-50 transition-colors;
+}
+
+.token-highlight {
+  @apply bg-blue-100 border-blue-300;
+}
+
+/* Table styles */
+.table-container {
+  @apply overflow-x-auto rounded-md border border-slate-200;
+}
+
+.table-default {
+  @apply min-w-full border-collapse;
+}
+
+.table-default th {
+  @apply border border-slate-200 bg-slate-50 p-3 text-left text-slate-700 font-medium;
+}
+
+.table-default td {
+  @apply border border-slate-200 p-3 text-slate-700;
+}
+
+.table-default tr:hover {
+  @apply bg-slate-50;
+}
+
+/* Animation utilities */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive utilities */
+.mobile-only {
+  @apply block md:hidden;
+}
+
+.desktop-only {
+  @apply hidden md:block;
 }

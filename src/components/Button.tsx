@@ -4,26 +4,28 @@ import { type VariantProps, cva } from "class-variance-authority";
 import { cn } from "~/utils/cn";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 dark:hover:bg-slate-800 dark:hover:text-slate-100 disabled:opacity-50 dark:focus:ring-slate-400 disabled:pointer-events-none dark:focus:ring-offset-slate-900 data-[state=open]:bg-slate-100 dark:data-[state=open]:bg-slate-800",
+  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none",
   {
     variants: {
       variant: {
         default:
-          "bg-slate-900 text-white hover:bg-slate-700 dark:bg-slate-50 dark:text-slate-900",
+          "bg-blue-600 text-white hover:bg-blue-700 shadow-sm focus:ring-blue-500 focus:ring-offset-white",
         destructive:
-          "bg-red-500 text-white hover:bg-red-600 dark:hover:bg-red-600",
+          "bg-red-500 text-white hover:bg-red-600 shadow-sm focus:ring-red-500 focus:ring-offset-white",
         outline:
-          "bg-transparent border border-slate-200 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-100",
+          "bg-transparent border border-slate-200 hover:bg-slate-50 hover:border-slate-300 text-slate-700 focus:ring-slate-400 focus:ring-offset-white",
         subtle:
-          "bg-slate-100 text-slate-900 hover:bg-slate-200 dark:bg-slate-700 dark:text-slate-100",
+          "bg-slate-100 text-slate-700 hover:bg-slate-200 focus:ring-slate-400 focus:ring-offset-white",
         ghost:
-          "bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 dark:text-slate-100 dark:hover:text-slate-100 data-[state=open]:bg-transparent dark:data-[state=open]:bg-transparent",
-        link: "bg-transparent dark:bg-transparent underline-offset-4 hover:underline text-slate-900 dark:text-slate-100 hover:bg-transparent dark:hover:bg-transparent",
+          "bg-transparent hover:bg-slate-100 text-slate-700 hover:text-slate-900 focus:ring-slate-400 focus:ring-offset-white",
+        link: "bg-transparent underline-offset-4 hover:underline text-blue-600 hover:text-blue-700 focus:ring-blue-500 focus:ring-offset-white",
+        primary: "bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 shadow-md focus:ring-blue-500 focus:ring-offset-white",
       },
       size: {
         default: "h-10 py-2 px-4",
-        sm: "h-9 px-2 rounded-md",
-        lg: "h-11 px-8 rounded-md",
+        sm: "h-9 px-3 rounded-md text-xs",
+        lg: "h-11 px-8 rounded-md text-base",
+        icon: "h-9 w-9 p-0 rounded-full",
       },
     },
     defaultVariants: {

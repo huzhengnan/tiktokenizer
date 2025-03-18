@@ -33,7 +33,7 @@ const MODEL_DESCRIPTIONS: Record<string, { title: string; description: string }>
   }
 };
 
-// 示例文本
+// Example texts (already in English)
 const EXAMPLE_TEXTS = [
   "Large Language Models (LLMs) are deep learning-based natural language processing models capable of understanding and generating human language.",
   "Tokenization is the process of breaking down text into smaller units called tokens.",
@@ -98,9 +98,9 @@ const ModelPage: NextPage<{ model: AllOptions }> = ({ model: initialModel }) => 
           />
         </header>
 
-        {/* 主要内容区域 - 与首页类似 */}
+        {/* Main content area - similar to homepage */}
         <div className="grid gap-4 md:grid-cols-2">
-          {/* 输入区域 */}
+          {/* Input area */}
           <section className="flex flex-col gap-4" aria-labelledby="input-section">
             <h2 id="input-section" className="sr-only">Input Text</h2>
             {isChatModel(model) && (
@@ -116,7 +116,7 @@ const ModelPage: NextPage<{ model: AllOptions }> = ({ model: initialModel }) => 
             />
           </section>
 
-          {/* 结果区域 */}
+          {/* Results area */}
           <section className="flex flex-col gap-4" aria-labelledby="token-section">
             <h2 id="token-section" className="sr-only">Tokenization Results</h2>
             {isEmpty ? (
@@ -141,7 +141,7 @@ const ModelPage: NextPage<{ model: AllOptions }> = ({ model: initialModel }) => 
           </section>
         </div>
         
-        {/* 模型特定信息 */}
+        {/* Model specific information */}
         <div className="mt-8 border-t pt-6">
           <h2 className="text-xl font-bold mb-4">About {model} Tokenization</h2>
           <div className="prose max-w-none">
@@ -189,7 +189,7 @@ const ModelPage: NextPage<{ model: AllOptions }> = ({ model: initialModel }) => 
           </div>
         </div>
 
-        {/* 页脚内容 */}
+        {/* Footer content */}
         <div className="flex justify-between items-center text-center md:mt-6">
           <p className="text-sm text-slate-400">
             Built by{" "}

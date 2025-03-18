@@ -75,11 +75,11 @@ const Home: NextPage<
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href="https://tiktokenizer.app" />
       </Head>
-      <main className="mx-auto flex min-h-screen max-w-[1200px] flex-col gap-4 p-8">
-        <header className="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
+      <main className="mx-auto flex min-h-screen max-w-[1200px] flex-col gap-6 p-8 bg-gradient-to-b from-white to-slate-50">
+        <header className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center mb-6">
           <div>
-            <h1 className="text-4xl font-bold">Tiktokenizer</h1>
-            <p className="text-slate-600 mt-2">Tokenization visualization tool for GPT, Llama, Qwen and other large language models</p>
+            <h1 className="heading-1 text-4xl font-bold text-slate-800 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Tiktokenizer</h1>
+            <p className="text-slate-600 mt-2 text-lg">Tokenization visualization tool for GPT, Llama, Qwen and other large language models</p>
           </div>
 
           <EncoderSelect
@@ -94,7 +94,7 @@ const Home: NextPage<
           />
         </header>
 
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2">
           <section className="flex flex-col gap-4" aria-labelledby="input-section">
             <h2 id="input-section" className="sr-only">Input Text</h2>
             {isChatModel(model) && (
@@ -104,7 +104,7 @@ const Home: NextPage<
             <TextArea
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
-              className="min-h-[256px] rounded-md border p-4 font-mono shadow-sm"
+              className="min-h-[256px] rounded-md border border-slate-200 p-4 font-mono shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
               placeholder="Enter text to analyze tokenization..."
               aria-label="Input text for tokenization"
             />
@@ -113,21 +113,21 @@ const Home: NextPage<
           <section className="flex flex-col gap-4" aria-labelledby="token-section">
             <h2 id="token-section" className="sr-only">Tokenization Results</h2>
             {isEmpty ? (
-              <div className="flex flex-col items-center justify-center min-h-[256px] border rounded-md p-4">
-                <h3 className="text-lg font-medium mb-4">Example Texts</h3>
+              <div className="flex flex-col items-center justify-center min-h-[256px] border border-slate-200 rounded-md p-6 bg-white shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-medium mb-4 text-slate-800">Example Texts</h3>
                 <p className="text-slate-600 mb-4">Click on an example below to see tokenization results:</p>
-                <div className="flex flex-col gap-2 w-full">
+                <div className="flex flex-col gap-3 w-full">
                   {EXAMPLE_TEXTS.map((text, index) => (
                     <button
                       key={index}
                       onClick={() => handleExampleClick(text)}
-                      className="text-left p-2 border rounded hover:bg-slate-50 transition-colors"
+                      className="text-left p-3 border border-slate-200 rounded-md hover:bg-slate-50 transition-colors hover:border-slate-300"
                     >
                       {text.length > 60 ? text.substring(0, 60) + '...' : text}
                     </button>
                   ))}
                 </div>
-                <div className="mt-4 text-center">
+                <div className="mt-6 text-center">
                   <p className="text-sm text-slate-500">
                     Need additional models? Contact us at:
                     <a 
@@ -147,24 +147,25 @@ const Home: NextPage<
         
         {/* Only show ads when there is content */}
         {!isEmpty && (
-          <div className="mt-8">
+          <div className="mt-8 ad-container">
+            {/* Ad content goes here */}
           </div>
         )}
         
         {/* Add more valuable content */}
-        <div className="mt-8 border-t pt-6">
-          <h2 className="text-xl font-bold mb-4">About Tokenization</h2>
+        <div className="mt-10 border-t border-slate-200 pt-8">
+          <h2 className="heading-2 mb-6 text-center">About Tokenization</h2>
           <div className="grid gap-6 md:grid-cols-2">
-            <div>
-              <h3 className="text-lg font-medium mb-2">What is Tokenization?</h3>
-              <p className="text-slate-600">
+            <div className="card hover:border-blue-200">
+              <h3 className="heading-3 mb-3">What is Tokenization?</h3>
+              <p className="text-body">
                 Tokenization is the process of breaking text into smaller units (called tokens). Large language models use these tokens to understand and generate text.
                 Different models use different tokenization algorithms, which affects their performance and efficiency.
               </p>
             </div>
-            <div>
-              <h3 className="text-lg font-medium mb-2">Why is Tokenization Important?</h3>
-              <p className="text-slate-600">
+            <div className="card hover:border-blue-200">
+              <h3 className="heading-3 mb-3">Why is Tokenization Important?</h3>
+              <p className="text-body">
                 Understanding how models break text into tokens is crucial for optimizing prompts, reducing token usage, and lowering API costs.
                 By visualizing the tokenization process, developers can better understand how models work and create more effective applications.
               </p>
@@ -173,45 +174,98 @@ const Home: NextPage<
         </div>
         
         {/* Add supported models list */}
-        <div className="mt-8">
-          <h2 className="text-xl font-bold mb-4">Supported Models</h2>
-          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-            <div className="border rounded-md p-3">
-              <h3 className="font-medium">OpenAI Models</h3>
-              <ul className="mt-2 text-sm text-slate-600">
-                <li>GPT-4</li>
-                <li>GPT-4o</li>
-                <li>GPT-3.5-Turbo</li>
-                <li>text-davinci-003</li>
+        <div className="mt-10">
+          <h2 className="heading-2 mb-6 text-center">Supported Models</h2>
+          <div className="card-grid">
+            <div className="card hover:border-blue-200">
+              <h3 className="heading-3 mb-3 flex items-center">
+                <span className="inline-block w-3 h-3 bg-blue-500 rounded-full mr-2"></span>
+                OpenAI Models
+              </h3>
+              <ul className="mt-3 space-y-2 text-small">
+                <li className="flex items-center">
+                  <span className="inline-block w-1.5 h-1.5 bg-slate-400 rounded-full mr-2"></span>
+                  GPT-4
+                </li>
+                <li className="flex items-center">
+                  <span className="inline-block w-1.5 h-1.5 bg-slate-400 rounded-full mr-2"></span>
+                  GPT-4o
+                </li>
+                <li className="flex items-center">
+                  <span className="inline-block w-1.5 h-1.5 bg-slate-400 rounded-full mr-2"></span>
+                  GPT-3.5-Turbo
+                </li>
+                <li className="flex items-center">
+                  <span className="inline-block w-1.5 h-1.5 bg-slate-400 rounded-full mr-2"></span>
+                  text-davinci-003
+                </li>
               </ul>
             </div>
-            <div className="border rounded-md p-3">
-              <h3 className="font-medium">Meta Models</h3>
-              <ul className="mt-2 text-sm text-slate-600">
-                <li>Llama 2</li>
-                <li>Llama 3</li>
-                <li>CodeLlama</li>
+            <div className="card hover:border-blue-200">
+              <h3 className="heading-3 mb-3 flex items-center">
+                <span className="inline-block w-3 h-3 bg-indigo-500 rounded-full mr-2"></span>
+                Meta Models
+              </h3>
+              <ul className="mt-3 space-y-2 text-small">
+                <li className="flex items-center">
+                  <span className="inline-block w-1.5 h-1.5 bg-slate-400 rounded-full mr-2"></span>
+                  Llama 2
+                </li>
+                <li className="flex items-center">
+                  <span className="inline-block w-1.5 h-1.5 bg-slate-400 rounded-full mr-2"></span>
+                  Llama 3
+                </li>
+                <li className="flex items-center">
+                  <span className="inline-block w-1.5 h-1.5 bg-slate-400 rounded-full mr-2"></span>
+                  CodeLlama
+                </li>
               </ul>
             </div>
-            <div className="border rounded-md p-3">
-              <h3 className="font-medium">Other Models</h3>
-              <ul className="mt-2 text-sm text-slate-600">
-                <li>Qwen</li>
-                <li>Mistral</li>
-                <li>Claude</li>
+            <div className="card hover:border-blue-200">
+              <h3 className="heading-3 mb-3 flex items-center">
+                <span className="inline-block w-3 h-3 bg-purple-500 rounded-full mr-2"></span>
+                Other Models
+              </h3>
+              <ul className="mt-3 space-y-2 text-small">
+                <li className="flex items-center">
+                  <span className="inline-block w-1.5 h-1.5 bg-slate-400 rounded-full mr-2"></span>
+                  Qwen
+                </li>
+                <li className="flex items-center">
+                  <span className="inline-block w-1.5 h-1.5 bg-slate-400 rounded-full mr-2"></span>
+                  Mistral
+                </li>
+                <li className="flex items-center">
+                  <span className="inline-block w-1.5 h-1.5 bg-slate-400 rounded-full mr-2"></span>
+                  Claude
+                </li>
               </ul>
             </div>
           </div>
         </div>
 
+        {/* Call to action */}
+        <div className="mt-10 text-center">
+          <div className="inline-block p-6 bg-blue-50 rounded-lg border border-blue-100">
+            <h3 className="heading-3 mb-3 text-blue-700">Ready to optimize your token usage?</h3>
+            <p className="text-blue-600 mb-4">Try different models and text inputs to see how tokenization varies.</p>
+            <button 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="btn btn-primary bg-blue-600 hover:bg-blue-700"
+            >
+              Start Tokenizing
+            </button>
+          </div>
+        </div>
+
         {/* Footer content */}
-        <div className="flex justify-between items-center text-center md:mt-6">
-          <p className="text-sm text-slate-400">
+        <div className="flex flex-col md:flex-row justify-between items-center text-center mt-10 pt-6 border-t border-slate-200">
+          <p className="text-sm text-slate-500 mb-4 md:mb-0">
             Built by{" "}
             <a
               target="_blank"
               rel="noreferrer"
-              className="text-slate-800"
+              className="text-slate-700 hover:text-blue-600 transition-colors"
               href="https://1000ai.ai"
             >
               1000ai
@@ -219,20 +273,20 @@ const Home: NextPage<
             {" | "}
             <a
               href="mailto:huzhengnan@foxmail.com"
-              className="text-slate-800"
+              className="text-slate-700 hover:text-blue-600 transition-colors"
               title="Contact us to add more models"
             >
               Contact Us
             </a>
           </p>
           
-          <div className="flex gap-3">
+          <div className="flex gap-4">
             <a 
               href="https://twitter.com/intent/tweet?text=Check%20out%20Tiktokenizer%20-%20a%20visualization%20tool%20for%20LLM%20tokenization&url=https://tiktokenizer.app" 
               target="_blank"
               rel="noreferrer"
               aria-label="Share on Twitter"
-              className="text-slate-600 hover:text-slate-900"
+              className="text-slate-500 hover:text-blue-500 transition-colors p-2 rounded-full hover:bg-slate-100"
             >
               <Twitter size={20} />
             </a>
@@ -241,7 +295,7 @@ const Home: NextPage<
               target="_blank"
               rel="noreferrer"
               aria-label="View on GitHub"
-              className="text-slate-600 hover:text-slate-900"
+              className="text-slate-500 hover:text-slate-900 transition-colors p-2 rounded-full hover:bg-slate-100"
             >
               <Github size={20} />
             </a>
