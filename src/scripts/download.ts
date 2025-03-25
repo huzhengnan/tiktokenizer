@@ -10,9 +10,9 @@ async function download() {
   // 设置代理
   // const proxyUrl = 'http://localhost:7890';
   // const proxyAgent = new ProxyAgent(proxyUrl);
-  
+
   // 不再替换全局fetch，而是直接使用undici的fetch
-  
+
   try {
     for (const modelName of Object.values(openSourceModels.Values)) {
       const [orgId, modelId] = z
@@ -31,17 +31,16 @@ async function download() {
         }
 
         console.log(`Downloading ${file} for ${modelName}...`);
-        
+
         // eg https://huggingface.co/codellama/CodeLlama-7b-hf/resolve/main/tokenizer.json
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 100000); // 100秒超时
-        
+        const url = `https://huggingface.co/${orgId}/${modelId}/resolve/${encodeURIComponent(rev)}/${file}`;
+        console.log("Fetching", url);
         try {
           // 直接使用undici的fetch，而不是全局fetch
           const res = await fetchWithProxy(
-            `https://huggingface.co/${orgId}/${modelId}/resolve/${encodeURIComponent(
-              rev
-            )}/${file}`,
+            url,
             {
               headers: {
                 Authorization: `Bearer ${env.HF_API_KEY}`,
@@ -51,7 +50,7 @@ async function download() {
               // dispatcher: proxyAgent
             }
           );
-          
+
           clearTimeout(timeoutId);
 
           if (!res.ok) {
