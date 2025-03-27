@@ -31,36 +31,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tiktokenizer.app/models/llama-3</loc>
-    <lastmod>2023-09-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://tiktokenizer.app/models/llama-2</loc>
-    <lastmod>2023-09-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://tiktokenizer.app/models/codellama</loc>
-    <lastmod>2023-09-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://tiktokenizer.app/models/qwen</loc>
-    <lastmod>2023-09-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://tiktokenizer.app/models/mistral</loc>
-    <lastmod>2023-09-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://tiktokenizer.app/models/cl100k_base</loc>
     <lastmod>2023-09-15</lastmod>
     <changefreq>monthly</changefreq>
