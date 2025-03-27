@@ -74,6 +74,8 @@ const Home: NextPage<
         <meta property="og:url" content="https://tiktokenizer.app" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href="https://tiktokenizer.app" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4602201282246605"
+     crossOrigin="anonymous"></script>
       </Head>
       <main className="mx-auto flex min-h-screen max-w-[1200px] flex-col gap-6 p-8 bg-gradient-to-b from-white to-slate-50">
         <header className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center mb-6">
