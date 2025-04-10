@@ -64,10 +64,21 @@ const Home: NextPage<
   return (
     <>
       <Head>
-        {/* Google AdSense */}
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4602201282246605"
-          crossOrigin="anonymous"></script>
         {/* Google Analytics */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-XKHFN1NQ3R"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-XKHFN1NQ3R');
+            `
+          }}
+        />
         <title>Tiktokenizer - Tokenization Visualization Tool for LLMs</title>
         <meta name="description" content="Tiktokenizer is a visualization tool for tokenization results of large language models like GPT, Llama, Qwen, helping developers understand and optimize token usage." />
         <meta name="keywords" content="tokenizer, GPT, Llama, CodeLlama, Qwen, tokenization, large language models, LLM, tokens, AI, artificial intelligence" />
