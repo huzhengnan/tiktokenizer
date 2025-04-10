@@ -64,6 +64,10 @@ const Home: NextPage<
   return (
     <>
       <Head>
+        {/* Google AdSense */}
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4602201282246605"
+          crossOrigin="anonymous"></script>
+        {/* Google Analytics */}
         <title>Tiktokenizer - Tokenization Visualization Tool for LLMs</title>
         <meta name="description" content="Tiktokenizer is a visualization tool for tokenization results of large language models like GPT, Llama, Qwen, helping developers understand and optimize token usage." />
         <meta name="keywords" content="tokenizer, GPT, Llama, CodeLlama, Qwen, tokenization, large language models, LLM, tokens, AI, artificial intelligence" />
@@ -75,7 +79,7 @@ const Home: NextPage<
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href="https://tiktokenizer.app" />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4602201282246605"
-     crossOrigin="anonymous"></script>
+          crossOrigin="anonymous"></script>
       </Head>
       <main className="mx-auto flex min-h-screen max-w-[1200px] flex-col gap-6 p-8 bg-gradient-to-b from-white to-slate-50">
         <header className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center mb-6">
@@ -132,8 +136,8 @@ const Home: NextPage<
                 <div className="mt-6 text-center">
                   <p className="text-sm text-slate-500">
                     Need additional models? Contact us at:
-                    <a 
-                      href="mailto:huzhengnan@foxmail.com" 
+                    <a
+                      href="mailto:huzhengnan@foxmail.com"
                       className="text-blue-600 hover:underline ml-1"
                     >
                       huzhengnan@foxmail.com
@@ -146,14 +150,14 @@ const Home: NextPage<
             )}
           </section>
         </div>
-        
+
         {/* Only show ads when there is content */}
         {!isEmpty && (
           <div className="mt-8 ad-container">
             {/* Ad content goes here */}
           </div>
         )}
-        
+
         {/* Add more valuable content */}
         <div className="mt-10 border-t border-slate-200 pt-8">
           <h2 className="heading-2 mb-6 text-center">About Tokenization</h2>
@@ -174,7 +178,7 @@ const Home: NextPage<
             </div>
           </div>
         </div>
-        
+
         {/* Add supported models list */}
         <div className="mt-10">
           <h2 className="heading-2 mb-6 text-center">Supported Models</h2>
@@ -251,7 +255,7 @@ const Home: NextPage<
           <div className="inline-block p-6 bg-blue-50 rounded-lg border border-blue-100">
             <h3 className="heading-3 mb-3 text-blue-700">Ready to optimize your token usage?</h3>
             <p className="text-blue-600 mb-4">Try different models and text inputs to see how tokenization varies.</p>
-            <button 
+            <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="btn btn-primary bg-blue-600 hover:bg-blue-700"
             >
@@ -281,10 +285,10 @@ const Home: NextPage<
               Contact Us
             </a>
           </p>
-          
+
           <div className="flex gap-4">
-            <a 
-              href="https://twitter.com/intent/tweet?text=Check%20out%20Tiktokenizer%20-%20a%20visualization%20tool%20for%20LLM%20tokenization&url=https://tiktokenizer.app" 
+            <a
+              href="https://twitter.com/intent/tweet?text=Check%20out%20Tiktokenizer%20-%20a%20visualization%20tool%20for%20LLM%20tokenization&url=https://tiktokenizer.app"
               target="_blank"
               rel="noreferrer"
               aria-label="Share on Twitter"
@@ -292,8 +296,8 @@ const Home: NextPage<
             >
               <Twitter size={20} />
             </a>
-            <a 
-              href="https://github.com/huzhengnan/tiktokenizer" 
+            <a
+              href="https://github.com/huzhengnan/tiktokenizer"
               target="_blank"
               rel="noreferrer"
               aria-label="View on GitHub"
@@ -303,7 +307,7 @@ const Home: NextPage<
             </a>
           </div>
         </div>
-        
+
         {/* Add structure data */}
         <script
           type="application/ld+json"
