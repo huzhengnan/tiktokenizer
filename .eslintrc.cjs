@@ -22,6 +22,7 @@ const config = {
         fixStyle: "inline-type-imports",
       },
     ],
+    "react/no-unescaped-entities": "warn",
   },
 };
 

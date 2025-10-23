@@ -77,8 +77,33 @@ const ModelPage: NextPage<{ model: AllOptions }> = ({ model: initialModel }) => 
         <meta property="og:description" content={modelInfo.description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`https://tiktokenizer.app/models/${model}`} />
+        <meta property="og:image" content="https://tiktokenizer.app/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={modelInfo.title} />
+        <meta name="twitter:description" content={modelInfo.description} />
+        <meta name="twitter:image" content="https://tiktokenizer.app/og-image.jpg" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={`https://tiktokenizer.app/models/${model}`} />
+
+        {/* Schema.org Structured Data - Tool/SoftwareApplication */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Tool",
+              "name": `${model} Tokenizer - Tiktokenizer`,
+              "description": modelInfo.description,
+              "url": `https://tiktokenizer.app/models/${model}`,
+              "applicationCategory": "DeveloperApplication",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            })
+          }}
+        />
       </Head>
       <main className="mx-auto flex min-h-screen max-w-[1200px] flex-col gap-4 p-8">
         <header className="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">

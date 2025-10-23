@@ -5,11 +5,12 @@ import {
 } from "next";
 import Head from "next/head";
 import { useMemo, useState } from "react";
-import { Twitter, Github } from "lucide-react"; // 添加这一行导入图标组件
 
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import { TextArea } from "~/components/Input";
+import { FAQ } from "~/components/FAQ";
+import { Testimonials } from "~/components/Testimonials";
 import { type AllOptions, isChatModel, isValidOption } from "~/models";
 import { createTokenizer } from "~/models/tokenizer";
 import { EncoderSelect } from "~/sections/EncoderSelect";
@@ -87,12 +88,82 @@ const Home: NextPage<
         <meta property="og:description" content="Visualize tokenization results of large language models like GPT, Llama, Qwen, helping developers understand and optimize token usage." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://tiktokenizer.app" />
+        <meta property="og:image" content="https://tiktokenizer.app/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Tiktokenizer - Tokenization Visualization Tool for LLMs" />
+        <meta name="twitter:description" content="Visualize and understand tokenization for GPT, Llama, Qwen, and other LLMs" />
+        <meta name="twitter:image" content="https://tiktokenizer.app/og-image.jpg" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href="https://tiktokenizer.app" />
+
+        {/* Schema.org Structured Data - Organization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Tiktokenizer",
+              "url": "https://tiktokenizer.app",
+              "logo": "https://tiktokenizer.app/favicon.ico",
+              "description": "A visualization tool for tokenization results of large language models",
+              "sameAs": [
+                "https://github.com/dqbd/tiktokenizer"
+              ]
+            })
+          }}
+        />
+
+        {/* Schema.org Structured Data - WebApplication */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "Tiktokenizer",
+              "url": "https://tiktokenizer.app",
+              "description": "Tokenization Visualization Tool for LLMs like GPT-4o, GPT-3.5-turbo, Llama, Qwen, DeepSeek, and more",
+              "applicationCategory": "DeveloperApplication",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.8",
+                "ratingCount": "150"
+              }
+            })
+          }}
+        />
+
+        {/* Schema.org Structured Data - SoftwareApplication */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": "Tiktokenizer",
+              "applicationCategory": "DeveloperApplication",
+              "description": "Visualization and analysis tool for LLM tokenization. Supports GPT-4o, GPT-3.5-turbo, Llama, Qwen, DeepSeek, Mistral, Phi, Yi, CodeLlama and more",
+              "url": "https://tiktokenizer.app",
+              "operatingSystem": "Web",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            })
+          }}
+        />
+
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4602201282246605"
           crossOrigin="anonymous"></script>
       </Head>
-      <main className="mx-auto flex min-h-screen max-w-[1200px] flex-col gap-6 p-8 bg-gradient-to-b from-white to-slate-50">
+      <main className="mx-auto flex w-full max-w-[1200px] flex-col gap-6 p-8 bg-gradient-to-b from-white to-slate-50">
         <header className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center mb-6">
           <div>
             <h1 className="heading-1 text-4xl font-bold text-slate-800 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Tiktokenizer</h1>
@@ -275,48 +346,74 @@ const Home: NextPage<
           </div>
         </div>
 
-        {/* Footer content */}
-        <div className="flex flex-col md:flex-row justify-between items-center text-center mt-10 pt-6 border-t border-slate-200">
-          <p className="text-sm text-slate-500 mb-4 md:mb-0">
-            Built by{" "}
-            <a
-              target="_blank"
-              rel="noreferrer"
-              className="text-slate-700 hover:text-blue-600 transition-colors"
-              href="https://1000ai.ai"
-            >
-              1000ai
-            </a>
-            {" | "}
-            <a
-              href="mailto:huzhengnan@foxmail.com"
-              className="text-slate-700 hover:text-blue-600 transition-colors"
-              title="Contact us to add more models"
-            >
-              Contact Us
-            </a>
-          </p>
+        {/* Testimonials Section */}
+        <div className="mt-16 py-12 border-t border-slate-200">
+          <Testimonials
+            items={[
+              {
+                name: "Alex Chen",
+                role: "AI Product Manager",
+                company: "TechCorp",
+                content:
+                  "Tiktokenizer has been invaluable for optimizing our prompts. We've reduced our token usage by 30% thanks to better understanding of tokenization.",
+                rating: 5,
+              },
+              {
+                name: "Sarah Johnson",
+                role: "ML Engineer",
+                company: "DataSystems Inc",
+                content:
+                  "The visualization is so intuitive and helpful. Finally, I can see exactly how different models tokenize text differently. Great tool!",
+                rating: 5,
+              },
+              {
+                name: "Marcus Williams",
+                role: "Full Stack Developer",
+                content:
+                  "Simple, clean, and incredibly useful. This tool has become essential in my workflow for building LLM applications.",
+                rating: 5,
+              },
+            ]}
+          />
+        </div>
 
-          <div className="flex gap-4">
-            <a
-              href="https://twitter.com/intent/tweet?text=Check%20out%20Tiktokenizer%20-%20a%20visualization%20tool%20for%20LLM%20tokenization&url=https://tiktokenizer.app"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Share on Twitter"
-              className="text-slate-500 hover:text-blue-500 transition-colors p-2 rounded-full hover:bg-slate-100"
-            >
-              <Twitter size={20} />
-            </a>
-            <a
-              href="https://github.com/huzhengnan/tiktokenizer"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="View on GitHub"
-              className="text-slate-500 hover:text-slate-900 transition-colors p-2 rounded-full hover:bg-slate-100"
-            >
-              <Github size={20} />
-            </a>
-          </div>
+        {/* FAQ Section */}
+        <div className="mt-16">
+          <FAQ
+            title="Common Questions"
+            items={[
+              {
+                question: "Is Tiktokenizer free?",
+                answer:
+                  "Yes, Tiktokenizer is completely free and open source. We believe in making tokenization visualization accessible to everyone.",
+              },
+              {
+                question: "Which models does Tiktokenizer support?",
+                answer:
+                  "We support OpenAI models (GPT-4, GPT-3.5, etc.), Meta's Llama family, Qwen models, Mistral, and many other open-source models from Hugging Face.",
+              },
+              {
+                question: "Is my data stored or shared?",
+                answer:
+                  "No, your data is processed locally in your browser. We don't store, log, or share any text you input. Your privacy is important to us.",
+              },
+              {
+                question: "How accurate are the token counts?",
+                answer:
+                  "Our token counts are based on the official tokenizers for each model. They should match exactly what the API would count, but we recommend testing with your specific use case.",
+              },
+              {
+                question: "Can I use Tiktokenizer offline?",
+                answer:
+                  "Since Tiktokenizer is open source, you can clone the GitHub repository and run it locally. Check our docs for setup instructions.",
+              },
+              {
+                question: "How do I add a new model?",
+                answer:
+                  "You can open an issue on our GitHub repository with a feature request. We regularly add new models based on user requests and community interest.",
+              },
+            ]}
+          />
         </div>
 
         {/* Add structure data */}

@@ -8,10 +8,11 @@ import { fetch as fetchWithProxy } from "undici";
 
 async function download() {
   // 设置代理
-  // const proxyUrl = 'http://localhost:7890';
-  // const proxyAgent = new ProxyAgent(proxyUrl);
+  const proxyUrl = 'http://localhost:7890';
+  const proxyAgent = new ProxyAgent(proxyUrl);
 
-  // 不再替换全局fetch，而是直接使用undici的fetch
+  const failedModels: string[] = [];
+  const successfulModels: string[] = [];
 
   try {
     for (const modelName of Object.values(openSourceModels.Values)) {
@@ -20,6 +21,7 @@ async function download() {
         .parse(modelName.split("/"));
 
       const rev = tempLlama3HackGetRevision(modelName);
+      let modelSuccess = true;
 
       for (const file of ["tokenizer.json", "tokenizer_config.json"]) {
         const targetDir = resolve("public/hf", orgId, modelId);
@@ -38,7 +40,7 @@ async function download() {
         const url = `https://huggingface.co/${orgId}/${modelId}/resolve/${encodeURIComponent(rev)}/${file}`;
         console.log("Fetching", url);
         try {
-          // 直接使用undici的fetch，而不是全局fetch
+          // 使用代理下载
           const res = await fetchWithProxy(
             url,
             {
@@ -47,14 +49,16 @@ async function download() {
                 ContentType: "application/json",
               },
               signal: controller.signal,
-              // dispatcher: proxyAgent
+              dispatcher: proxyAgent
             }
           );
 
           clearTimeout(timeoutId);
 
           if (!res.ok) {
-            throw new Error(`Failed to fetch ${file} for ${modelName}: ${res.status} ${res.statusText}`);
+            console.warn(`⚠️  Warning: ${res.status} ${res.statusText} for ${modelName} - ${file}`);
+            modelSuccess = false;
+            continue;
           }
 
           await fs.mkdir(targetDir, { recursive: true });
@@ -62,13 +66,28 @@ async function download() {
           await fs.writeFile(targetPath, await res.text());
         } catch (error) {
           clearTimeout(timeoutId);
-          console.error(`Error downloading ${file} for ${modelName}:`, error);
-          throw error;
+          console.warn(`⚠️  Warning downloading ${file} for ${modelName}:`, error instanceof Error ? error.message : String(error));
+          modelSuccess = false;
         }
+      }
+
+      if (modelSuccess) {
+        successfulModels.push(modelName);
+      } else {
+        failedModels.push(modelName);
       }
     }
   } finally {
-    // 不再需要恢复全局fetch
+    // 打印统计信息
+    console.log("\n=== Download Summary ===");
+    console.log(`✅ Successful: ${successfulModels.length} models`);
+    if (successfulModels.length > 0) {
+      console.log("  ", successfulModels.join(", "));
+    }
+    console.log(`⚠️  Failed/Skipped: ${failedModels.length} models`);
+    if (failedModels.length > 0) {
+      console.log("  ", failedModels.join(", "));
+    }
   }
 }
 

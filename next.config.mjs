@@ -12,7 +12,7 @@ const config = {
 
   // 添加图像优化
   images: {
-    domains: ['1000ai.ai'],
+    domains: ['1000ai.ai', 'cdn.1000ai.ai'],
     formats: ['image/avif', 'image/webp'],
   },
   

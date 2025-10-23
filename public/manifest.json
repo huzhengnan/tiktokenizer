@@ -1,0 +1,46 @@
+{
+  "name": "Tiktokenizer - LLM Tokenization Tool",
+  "short_name": "Tiktokenizer",
+  "description": "Tokenization visualization tool for GPT, Llama, Qwen and other large language models",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "https://cdn.1000ai.ai/kiro/2025-10-23/icon_Professional_TT_logo_20251023_111110.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://cdn.1000ai.ai/kiro/2025-10-23/icon_Professional_logo_de_20251023_111110.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://cdn.1000ai.ai/kiro/2025-10-23/icon_TT_logo_favicon_Blu_20251023_111131.png",
+      "sizes": "64x64",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://cdn.1000ai.ai/kiro/2025-10-23/icon_TT_logo_favicon_Blu_20251023_111138.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["productivity", "utilities"],
+  "screenshots": [
+    {
+      "src": "https://cdn.1000ai.ai/kiro/2025-10-23/generated_A_professional_infog_20251023_105632.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ]
+}

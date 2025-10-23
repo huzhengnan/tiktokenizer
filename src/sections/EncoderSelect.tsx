@@ -58,7 +58,20 @@ export function EncoderSelect(props: {
         <PopoverContent className="max-h-[70vh] overflow-auto p-0 pb-2">
           <Command>
             <CommandInput placeholder="Search model or encoder..." />
-            <CommandEmpty>No model or encoder found.</CommandEmpty>
+            <CommandEmpty>
+              <div className="py-6 text-center text-sm">
+                <p className="text-slate-500 italic mb-2">No model or encoder found.</p>
+                <p className="text-slate-400 text-xs">
+                  Need a specific model?{" "}
+                  <a
+                    href="mailto:huzhengnan@foxmail.com?subject=Model%20Request"
+                    className="text-blue-500 hover:underline"
+                  >
+                    Email us
+                  </a>
+                </p>
+              </div>
+            </CommandEmpty>
             <CommandGroup heading="Popular">
               {POPULAR.map((value) => (
                 <CommandItem
@@ -118,6 +131,27 @@ export function EncoderSelect(props: {
                   </CommandItem>
                 ))}
             </CommandGroup>
+
+            <CommandSeparator />
+
+            <div className="py-3 px-4 text-center">
+              <p className="text-xs text-slate-400">
+                Can&apos;t find a model you need?{" "}
+                <a
+                  href="mailto:huzhengnan@foxmail.com?subject=Model%20Request"
+                  className="text-blue-500 hover:underline"
+                  onClick={(e) => {
+                    // Fallback for cases where mailto doesn't work
+                    if (!window.location.href.startsWith('mailto:')) {
+                      e.preventDefault();
+                      window.open(`mailto:huzhengnan@foxmail.com?subject=Model Request`);
+                    }
+                  }}
+                >
+                  Email us
+                </a>
+              </p>
+            </div>
           </Command>
         </PopoverContent>
       </Popover>
