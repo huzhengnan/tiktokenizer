@@ -43,3 +43,5 @@ yarn-error.log*
 
 # hf
 public/hf
+
+.idea
