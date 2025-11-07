@@ -92,9 +92,13 @@ export const openSourceModels = z.enum([
   "deepseek-ai/DeepSeek-R1",
   "deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
   "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+  "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
   "deepseek-ai/DeepSeek-V3",
   "deepseek-ai/DeepSeek-V3-0324",
+  "deepseek-ai/DeepSeek-V2.5",
+  "deepseek-ai/DeepSeek-V2",
   "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
+  "deepseek-ai/DeepSeek-Coder-V2",
 
   // Qwen 系列（阿里）
   "Qwen/Qwen2.5-72B",
@@ -104,10 +108,13 @@ export const openSourceModels = z.enum([
   "Qwen/Qwen2.5-3B",
   "Qwen/Qwen2-72B",
   "Qwen/Qwen2-57B-A14B",
+  "Qwen/Qwen2-1B",
   "Qwen/QwQ-32B",
   "Qwen/QwQ-32B-Preview",
   "Qwen/Qwen2.5-Math-72B",
   "Qwen/Qwen2.5-Coder-32B-Instruct",
+  "Qwen/Qwen2.5-Coder-7B",
+  "Qwen/QVQ-72B-Preview",
 
   // Microsoft Phi 系列（高效小模型）
   "microsoft/phi-2",
@@ -129,9 +136,11 @@ export const openSourceModels = z.enum([
   // "mistralai/Mistral-7B-v0.1",
   // "mistralai/Mistral-Large-Instruct-2407",  // 403 Forbidden
   "mistralai/Mistral-Small-Instruct-2409",
+  "mistralai/Mistral-7B-Instruct-v0.3",
   "mistralai/Mixtral-8x7B-Instruct-v0.1",
   "mistralai/Mixtral-8x22B-Instruct-v0.1",
   "mistralai/Mistral-Nemo-Instruct-2407",
+  "mistralai/Mistral-7B-v0.1",
 
   // Falcon 系列
   "tiiuae/falcon-7b",
@@ -171,6 +180,73 @@ export const openSourceModels = z.enum([
   "mistralai/Mistral-7B-Instruct-v0.2",
   "NousResearch/Nous-Hermes-2-Mixtral-8x7B-DPO",
   // "teknium/Hermes-3-Llama-3.1-8B",  // 404 Not Found
+
+  // Llama 2 系列
+  "meta-llama/Llama-2-7b-hf",
+  "meta-llama/Llama-2-70b-hf",
+  "meta-llama/Llama-2-13b-hf",
+
+  // Gemma 系列 (Google)
+  // "google/gemma-7b",  // 404 Not Found
+  // "google/gemma-2b",  // 404 Not Found
+
+  // Llava 视觉模型
+  "llava-hf/llava-1.5-7b-hf",
+  "llava-hf/llava-1.5-13b-hf",
+
+  // 其他热门模型
+  "meta-llama/Llama-2-7b-chat-hf",
+  "meta-llama/Llama-2-70b-chat-hf",
+  // "mistralai/Mistral-7B",  // 404 Not Found
+  // "NousResearch/Nous-Hermes-2-Mistral-7B-DPO",  // 404 Not Found
+  // "lmsys/vicuna-7b-v1.5",  // 404 Not Found
+  // "lmsys/vicuna-13b-v1.5",  // 404 Not Found
+  "stabilityai/stablelm-3b-4e1t",
+  "stabilityai/stablelm-zephyr-3b",
+
+  // Baichuan 系列 (百川)
+  // "baichuan-inc/Baichuan-7B",  // 404 Not Found
+  // "baichuan-inc/Baichuan2-7B-Base",  // 404 Not Found
+  // "baichuan-inc/Baichuan2-13B-Base",  // 404 Not Found
+
+  // Internlm 系列
+  // "internlm/internlm2-7b",  // 404 Not Found
+  // "internlm/internlm2-20b",  // 404 Not Found
+
+  // Bloom 系列
+  "bigscience/bloom",
+  "bigscience/bloom-7b1",
+
+  // Mistral 小模型
+  "mistralai/Mistral-7B-Instruct-v0.1",
+
+  // 更多 Phi 模型
+  "microsoft/Phi-3.5-mini-instruct",
+  // "microsoft/Phi-3-small-128k-instruct",  // 404 Not Found
+
+  // Yi 更多变体
+  "01-ai/Yi-6B-Chat",
+  "01-ai/Yi-1.5-6B",
+
+  // Zephyr 系列
+  "HuggingFaceH4/zephyr-7b-beta",
+  "HuggingFaceH4/zephyr-7b-alpha",
+
+  // Orca 系列
+  // "microsoft/Orca-2-7b",  // 404 Not Found
+  // "microsoft/Orca-2-13b",  // 404 Not Found
+
+  // Dolphin 系列
+  // "cognitivecomputations/Dolphin-2.6-Mixtral-8x7b",  // 404 Not Found
+
+  // Airoboros 系列
+  "jondurbin/airoboros-l2-7b-gpt4-1.4.1",
+
+  // Chinese 特化模型
+  "wenge-research/yayi-7b",
+  // "THUDM/chatglm3-6b",  // 404 Not Found
+  // "THUDM/chatglm3-6b-32k",  // 404 Not Found
+  // "THUDM/chatglm2-6b",  // 404 Not Found
 ]);
 
 export function tempLlama3HackGetRevision(model: AllModels): string {

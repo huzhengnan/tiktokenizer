@@ -10,6 +10,12 @@
 const config = {
   reactStrictMode: true,
 
+  // Disable ESLint warnings as errors during build
+  eslint: {
+    // Warning: This allows the build to succeed even if there are ESLint warnings
+    ignoreDuringBuilds: false,
+  },
+
   // 添加图像优化
   images: {
     domains: ['1000ai.ai', 'cdn.1000ai.ai'],
