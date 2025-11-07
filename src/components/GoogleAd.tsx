@@ -64,7 +64,7 @@ export const GoogleAd: React.FC<GoogleAdProps> = ({
       <ins
         className="adsbygoogle"
         style={{ display: 'block', width: responsive ? '100%' : 'auto', height: '100%' }}
-        data-ad-client="ca-pub-1234567890123456" // Replace with your actual ad client ID
+        data-ad-client="ca-pub-4602201282246605"
         data-ad-slot={slot}
         data-ad-format={format}
         data-full-width-responsive={responsive ? 'true' : 'false'}

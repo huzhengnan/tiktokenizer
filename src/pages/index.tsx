@@ -159,9 +159,6 @@ const Home: NextPage<
             })
           }}
         />
-
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4602201282246605"
-          crossOrigin="anonymous"></script>
       </Head>
       <main className="mx-auto flex w-full max-w-[1200px] flex-col gap-6 p-8 bg-gradient-to-b from-white to-slate-50">
         <header className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center mb-6">
@@ -346,36 +343,10 @@ const Home: NextPage<
           </div>
         </div>
 
-        {/* Testimonials Section */}
-        <div className="mt-16 py-12 border-t border-slate-200">
-          <Testimonials
-            items={[
-              {
-                name: "Alex Chen",
-                role: "AI Product Manager",
-                company: "TechCorp",
-                content:
-                  "Tiktokenizer has been invaluable for optimizing our prompts. We've reduced our token usage by 30% thanks to better understanding of tokenization.",
-                rating: 5,
-              },
-              {
-                name: "Sarah Johnson",
-                role: "ML Engineer",
-                company: "DataSystems Inc",
-                content:
-                  "The visualization is so intuitive and helpful. Finally, I can see exactly how different models tokenize text differently. Great tool!",
-                rating: 5,
-              },
-              {
-                name: "Marcus Williams",
-                role: "Full Stack Developer",
-                content:
-                  "Simple, clean, and incredibly useful. This tool has become essential in my workflow for building LLM applications.",
-                rating: 5,
-              },
-            ]}
-          />
-        </div>
+        {/* Testimonials Section - Commented out until real user feedback is available */}
+        {/* <div className="mt-16 py-12 border-t border-slate-200">
+          <Testimonials items={[]} />
+        </div> */}
 
         {/* FAQ Section */}
         <div className="mt-16">

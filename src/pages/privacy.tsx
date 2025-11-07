@@ -46,22 +46,42 @@ export default function PrivacyPolicy() {
               <li>Offer new products, services, and/or recommendations to you</li>
             </ul>
 
-            <h2 className="text-2xl font-bold text-slate-900 mt-8 mb-4">4. Disclosure of Your Information</h2>
+            <h2 className="text-2xl font-bold text-slate-900 mt-8 mb-4">4. Advertising and Third-Party Services</h2>
+            <p className="text-slate-700 mb-4">
+              <strong>Google AdSense:</strong> We use Google AdSense to serve advertisements on our website. Google may collect and use information about your visits to this and other websites in order to provide advertisements about goods and services that may be of interest to you. Google uses cookies to track ad performance and personalize advertising.
+            </p>
+            <p className="text-slate-700 mb-4">
+              <strong>Data Sharing with Advertisers:</strong> We share information with Google and other third-party advertisers to improve ad targeting. This information may include:
+            </p>
+            <ul className="list-disc list-inside text-slate-700 space-y-2 mb-4">
+              <li>Your IP address and browser information</li>
+              <li>Pages you visit and content you interact with</li>
+              <li>Device information and operating system</li>
+              <li>Approximate location based on IP address</li>
+            </ul>
+            <p className="text-slate-700 mb-4">
+              <strong>Opting Out of Personalized Ads:</strong> You can opt out of personalized advertising by visiting the Google Ads Settings page at <a href="https://adssettings.google.com/" className="text-blue-600 hover:underline">https://adssettings.google.com/</a> or by enabling the "Do Not Track" feature in your browser.
+            </p>
+            <p className="text-slate-700 mb-4">
+              <strong>Other Third-Party Services:</strong> We use Google Analytics and Microsoft Clarity to analyze website usage and improve user experience. These services may collect information about your visits and interactions.
+            </p>
+
+            <h2 className="text-2xl font-bold text-slate-900 mt-8 mb-4">5. Disclosure of Your Information</h2>
             <p className="text-slate-700 mb-4">
               We may share information we have collected about you in certain situations:
             </p>
             <ul className="list-disc list-inside text-slate-700 space-y-2 mb-4">
               <li><strong>By Law or to Protect Rights:</strong> If we believe the release of information is necessary to comply with the law</li>
-              <li><strong>Third-Party Service Providers:</strong> We may share your information with third-party service providers who assist us in operating our Site and conducting our business</li>
+              <li><strong>Third-Party Service Providers:</strong> We may share your information with third-party service providers who assist us in operating our Site and conducting our business, including advertising partners</li>
               <li><strong>Marketing Communications:</strong> With your consent, we may share your information with third parties for marketing purposes</li>
             </ul>
 
-            <h2 className="text-2xl font-bold text-slate-900 mt-8 mb-4">5. Security of Your Information</h2>
+            <h2 className="text-2xl font-bold text-slate-900 mt-8 mb-4">6. Security of Your Information</h2>
             <p className="text-slate-700 mb-4">
               We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable.
             </p>
 
-            <h2 className="text-2xl font-bold text-slate-900 mt-8 mb-4">6. Contact Us</h2>
+            <h2 className="text-2xl font-bold text-slate-900 mt-8 mb-4">7. Contact Us</h2>
             <p className="text-slate-700 mb-4">
               If you have questions or comments about this Privacy Policy, please contact us at:
             </p>
@@ -69,7 +89,7 @@ export default function PrivacyPolicy() {
               Email: <a href="mailto:huzhengnan@foxmail.com" className="text-blue-600 hover:underline">huzhengnan@foxmail.com</a>
             </p>
 
-            <h2 className="text-2xl font-bold text-slate-900 mt-8 mb-4">7. Changes to This Privacy Policy</h2>
+            <h2 className="text-2xl font-bold text-slate-900 mt-8 mb-4">8. Changes to This Privacy Policy</h2>
             <p className="text-slate-700 mb-4">
               We reserve the right to modify this Privacy Policy at any time. Changes and clarifications will take effect immediately upon their posting to the Site. If we make material changes to this policy, we will notify you here that it has been updated, so that you are aware of what information we collect, how we use it, and under what circumstances, if any, we use and/or disclose it.
             </p>
