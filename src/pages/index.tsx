@@ -4,6 +4,7 @@ import {
   type NextPage,
 } from "next";
 import Head from "next/head";
+import Link from "next/link";
 import { useMemo, useState } from "react";
 
 import { useQuery } from "@tanstack/react-query";
@@ -80,18 +81,18 @@ const Home: NextPage<
             `
           }}
         />
-        <title>Tiktokenizer - Tokenization Visualization Tool for LLMs</title>
-        <meta name="description" content="Tiktokenizer is a visualization tool for tokenization results of large language models like GPT, Llama, Qwen, helping developers understand and optimize token usage." />
-        <meta name="keywords" content="tokenizer, GPT, Llama, CodeLlama, Qwen, tokenization, large language models, LLM, tokens, AI, artificial intelligence" />
+        <title>Tiktokenizer - Free Online Tiktoken Counter & Tokenizer Tool | GPT-4, Claude, Llama</title>
+        <meta name="description" content="Free online tiktoken tokenizer and token counter for GPT-4, Claude, Llama, DeepSeek, Qwen models. Visualize tokenization, count tokens, optimize prompts for ChatGPT and LLMs. Official tiktoken online tool." />
+        <meta name="keywords" content="tiktokenizer, tiktoken, tiktoken online, tiktoken counter, token counter, tokenizer, gpt tokenizer, openai tokenizer, llm token counter, token count, chatgpt token counter, tiktoken tokenizer, tokenizer playground, count tokens, tokenize text, python tiktoken, openai tiktoken, gpt tokens, deepseek tokens, llm token calculator" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content="Tiktokenizer - Tokenization Visualization Tool for LLMs" />
-        <meta property="og:description" content="Visualize tokenization results of large language models like GPT, Llama, Qwen, helping developers understand and optimize token usage." />
+        <meta property="og:title" content="Tiktokenizer - Free Online Tiktoken Counter & Tokenizer | GPT-4, Claude" />
+        <meta property="og:description" content="Free tiktoken online tool: Count tokens, visualize tokenization for GPT-4, Claude, Llama, DeepSeek. Optimize your prompts and reduce API costs with our token counter." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://tiktokenizer.app" />
         <meta property="og:image" content="https://tiktokenizer.app/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Tiktokenizer - Tokenization Visualization Tool for LLMs" />
-        <meta name="twitter:description" content="Visualize and understand tokenization for GPT, Llama, Qwen, and other LLMs" />
+        <meta name="twitter:title" content="Tiktokenizer - Free Tiktoken Counter & Online Tokenizer Tool" />
+        <meta name="twitter:description" content="Count tokens online for GPT-4, Claude, Llama models. Free tiktoken tokenizer with visualization. Optimize prompts & reduce API costs." />
         <meta name="twitter:image" content="https://tiktokenizer.app/og-image.jpg" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href="https://tiktokenizer.app" />
@@ -163,8 +164,8 @@ const Home: NextPage<
       <main className="mx-auto flex w-full max-w-[1200px] flex-col gap-6 p-8 bg-gradient-to-b from-white to-slate-50">
         <header className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center mb-6">
           <div>
-            <h1 className="heading-1 text-4xl font-bold text-slate-800 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Tiktokenizer</h1>
-            <p className="text-slate-600 mt-2 text-lg">Tokenization visualization tool for GPT, Llama, Qwen and other large language models</p>
+            <h1 className="heading-1 text-4xl font-bold text-slate-800 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Tiktokenizer - Free Online Tiktoken Counter</h1>
+            <p className="text-slate-600 mt-2 text-lg">Online tokenizer and token counter for GPT-4, Claude, Llama, DeepSeek, and 60+ LLM models</p>
           </div>
 
           <EncoderSelect
@@ -350,6 +351,74 @@ const Home: NextPage<
 
         {/* FAQ Section */}
         <div className="mt-16">
+          {/* SEO Internal Links Section */}
+          <div className="mb-12 bg-gradient-to-br from-slate-50 to-blue-50 rounded-xl p-8 border border-slate-200">
+            <h2 className="text-2xl font-bold text-slate-800 mb-6 text-center">
+              Explore Our Token Counter Tools
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Link
+                href="/token-counter"
+                className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-all border-2 border-transparent hover:border-blue-400"
+              >
+                <h3 className="font-semibold text-lg text-slate-800 mb-2 flex items-center gap-2">
+                  <span className="text-2xl">📊</span>
+                  Token Counter
+                </h3>
+                <p className="text-slate-600 text-sm">
+                  Count tokens for GPT-4, Claude, Llama and 60+ LLM models. Free online token counter with real-time visualization.
+                </p>
+              </Link>
+
+              <Link
+                href="/tiktoken-online"
+                className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-all border-2 border-transparent hover:border-indigo-400"
+              >
+                <h3 className="font-semibold text-lg text-slate-800 mb-2 flex items-center gap-2">
+                  <span className="text-2xl">⚡</span>
+                  Tiktoken Online
+                </h3>
+                <p className="text-slate-600 text-sm">
+                  Use OpenAI's tiktoken tokenizer online. No Python installation required - count tokens instantly in your browser.
+                </p>
+              </Link>
+
+              <Link
+                href="/openai-tokenizer"
+                className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-all border-2 border-transparent hover:border-purple-400"
+              >
+                <h3 className="font-semibold text-lg text-slate-800 mb-2 flex items-center gap-2">
+                  <span className="text-2xl">🤖</span>
+                  OpenAI Tokenizer
+                </h3>
+                <p className="text-slate-600 text-sm">
+                  Official OpenAI tokenizer for GPT-4, ChatGPT. Calculate API costs and optimize prompts with accurate token counts.
+                </p>
+              </Link>
+            </div>
+
+            <div className="mt-8 text-center">
+              <h3 className="text-lg font-semibold text-slate-800 mb-4">Popular Resources</h3>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link href="/blog/token-economy" className="text-blue-600 hover:underline text-sm font-medium">
+                  Token Pricing Guide
+                </Link>
+                <span className="text-slate-300">•</span>
+                <Link href="/blog/multilingual-tokenization" className="text-blue-600 hover:underline text-sm font-medium">
+                  Multilingual Tokens
+                </Link>
+                <span className="text-slate-300">•</span>
+                <Link href="/blog/efficient-prompt-design" className="text-blue-600 hover:underline text-sm font-medium">
+                  Prompt Optimization
+                </Link>
+                <span className="text-slate-300">•</span>
+                <Link href="/blog/rag-systems" className="text-blue-600 hover:underline text-sm font-medium">
+                  RAG Token Management
+                </Link>
+              </div>
+            </div>
+          </div>
+
           <FAQ
             title="Common Questions"
             items={[
@@ -385,6 +454,24 @@ const Home: NextPage<
               },
             ]}
           />
+        </div>
+
+        {/* Advertising Disclosure */}
+        <div className="mt-12 border-t border-slate-200 pt-8">
+          <div className="bg-slate-50 rounded-lg p-6 text-center">
+            <h3 className="text-sm font-semibold text-slate-700 mb-2">Advertising Disclosure</h3>
+            <p className="text-xs text-slate-600 leading-relaxed max-w-3xl mx-auto">
+              This website is a free tool for developers and is supported by advertising. We participate in Google AdSense to display relevant ads. When you click on ads or links on this site, we may receive compensation from third parties. This helps us keep the tool free and continuously improve it. Your use of this site and interaction with ads is governed by our{" "}
+              <Link href="/privacy" className="text-blue-600 hover:underline">
+                Privacy Policy
+              </Link>
+              . You can opt out of personalized advertising at{" "}
+              <a href="https://adssettings.google.com/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
+                Google Ads Settings
+              </a>
+              .
+            </p>
+          </div>
         </div>
 
         {/* Add structure data */}

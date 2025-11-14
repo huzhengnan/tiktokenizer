@@ -11,6 +11,24 @@ const generateSiteMap = () => {
       priority: '1.0',
     },
     {
+      url: '/token-counter',
+      lastmod: new Date().toISOString().split('T')[0],
+      changefreq: 'daily',
+      priority: '0.95',
+    },
+    {
+      url: '/tiktoken-online',
+      lastmod: new Date().toISOString().split('T')[0],
+      changefreq: 'daily',
+      priority: '0.95',
+    },
+    {
+      url: '/openai-tokenizer',
+      lastmod: new Date().toISOString().split('T')[0],
+      changefreq: 'daily',
+      priority: '0.95',
+    },
+    {
       url: '/about',
       lastmod: new Date().toISOString().split('T')[0],
       changefreq: 'monthly',
@@ -55,6 +73,36 @@ const generateSiteMap = () => {
     {
       url: '/blog/llm-api-cost-management',
       lastmod: '2024-10-22',
+      changefreq: 'monthly',
+      priority: '0.8',
+    },
+    {
+      url: '/blog/finetuning-llms',
+      lastmod: new Date().toISOString().split('T')[0],
+      changefreq: 'monthly',
+      priority: '0.8',
+    },
+    {
+      url: '/blog/token-economy',
+      lastmod: new Date().toISOString().split('T')[0],
+      changefreq: 'monthly',
+      priority: '0.8',
+    },
+    {
+      url: '/blog/multilingual-tokenization',
+      lastmod: new Date().toISOString().split('T')[0],
+      changefreq: 'monthly',
+      priority: '0.8',
+    },
+    {
+      url: '/blog/rag-systems',
+      lastmod: new Date().toISOString().split('T')[0],
+      changefreq: 'monthly',
+      priority: '0.8',
+    },
+    {
+      url: '/blog/efficient-prompt-design',
+      lastmod: new Date().toISOString().split('T')[0],
       changefreq: 'monthly',
       priority: '0.8',
     },

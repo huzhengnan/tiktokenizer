@@ -1,3 +1,12 @@
+# https://tiktokenizer.app/robots.txt
 User-agent: *
 Allow: /
+
+# High-priority SEO pages
+Allow: /token-counter
+Allow: /tiktoken-online
+Allow: /openai-tokenizer
+Allow: /blog/
+
+# Sitemaps
 Sitemap: https://tiktokenizer.app/sitemap.xml
