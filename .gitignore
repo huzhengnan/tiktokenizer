@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 
+# lock files - use yarn only
+package-lock.json
+pnpm-lock.yaml
+
 # testing
 /coverage
 
